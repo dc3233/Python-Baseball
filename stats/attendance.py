@@ -10,10 +10,15 @@ attendance = games.loc[(games['type'] == 'info') # make new dataframe based on c
 attendance.columns = ['year', 'attendance'] # assign column names to new attendance dataframe
 
 attendance.loc[:, 'attendance'] = pd.to_numeric(attendance.loc[:, 'attendance']) # make all rows in attendance col numeric and replace
+
+# plot attendance
 attendance.plot(x='year', y='attendance', figsize=(15, 7), kind='bar')
 
+# assign labels
 plt.xlabel('Year')
 plt.ylabel('Attendance')
+
+# add mean line
 plt.axhline(y=attendance['attendance'].mean(), label='Mean', linestyle='--', color='green')
 
 plt.show()
